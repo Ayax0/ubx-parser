@@ -1,9 +1,9 @@
-# packageName
+# @nextlvlup/ubx-parser
 
 <!-- automd:badges color=yellow -->
 
-[![npm version](https://img.shields.io/npm/v/packageName?color=yellow)](https://npmjs.com/package/packageName)
-[![npm downloads](https://img.shields.io/npm/dm/packageName?color=yellow)](https://npm.chart.dev/packageName)
+[![npm version](https://img.shields.io/npm/v/@nextlvlup/ubx-parser?color=yellow)](https://npmjs.com/package/@nextlvlup/ubx-parser)
+[![npm downloads](https://img.shields.io/npm/dm/@nextlvlup/ubx-parser?color=yellow)](https://npm.chart.dev/@nextlvlup/ubx-parser)
 
 <!-- /automd -->
 
@@ -15,26 +15,34 @@ Install the package:
 
 ```sh
 # ✨ Auto-detect (supports npm, yarn, pnpm, deno and bun)
-npx nypm install packageName
+npx nypm install @nextlvlup/ubx-parser
+# npm
+npm install @nextlvlup/ubx-parser
+# pnpm
+pnpm install @nextlvlup/ubx-parser
 ```
 
-Import:
+## Basic Usage
 
-<!-- automd:jsimport cdn name="pkg" -->
+```ts
+import { createParser } from "@nextlvlup/ubx-parser";
+import { UBX_NAV_PVT } from "@nextlvlup/ubx-parser/parser";
 
-**ESM** (Node.js, Bun, Deno)
+const parser = createParser();
 
-```js
-import {} from "pkg";
+// callback with error and respective buffer
+parser.hooks.hook("error", (err, buf) => console.log);
+// callback with packets as raw buffer
+parser.hooks.hook("data", (data) => console.log);
+
+// attach UBX-NAV-PVT Parser and listen for packets
+// callback with fully typed UBX-NAV-PVT packets
+parser.attach(UBX_NAV_PVT).hook((data) => console.log);
+
+parser.parse(/** Input Buffer */);
 ```
 
-**CDN** (Deno, Bun and Browsers)
-
-```js
-import {} from "https://esm.sh/pkg";
-```
-
-<!-- /automd -->
+##
 
 ## Development
 
@@ -54,11 +62,11 @@ import {} from "https://esm.sh/pkg";
 
 <!-- automd:contributors license=MIT -->
 
-Published under the [MIT](https://github.com/unjs/packageName/blob/main/LICENSE) license.
-Made by [community](https://github.com/unjs/packageName/graphs/contributors) 💛
+Published under the [MIT](https://github.com/Ayax0/ubx-parser/blob/main/LICENSE) license.
+Made by [community](https://github.com/Ayax0/ubx-parser/graphs/contributors) 💛
 <br><br>
-<a href="https://github.com/unjs/packageName/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=unjs/packageName" />
+<a href="https://github.com/Ayax0/ubx-parser/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Ayax0/ubx-parser" />
 </a>
 
 <!-- /automd -->

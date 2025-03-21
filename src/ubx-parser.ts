@@ -8,7 +8,7 @@ interface Hooks {
 
 const PACKET_MIN_LENGTH = 8;
 
-export function createUBXParser() {
+export function createParser() {
   const hooks = createHooks<Hooks>();
   const parsers: [PacketParser<any>, (data: any) => Promise<void> | void][] =
     [];
