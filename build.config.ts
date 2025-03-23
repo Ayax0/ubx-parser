@@ -7,8 +7,8 @@ export default defineBuildConfig({
     "./src/utils/index",
     {
       builder: "mkdist",
-      input: "./src/parser",
-      outDir: "./dist/parser",
+      input: "./src/message",
+      outDir: "./dist/message",
     },
   ],
 });

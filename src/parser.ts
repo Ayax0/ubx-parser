@@ -96,3 +96,5 @@ export function createParser() {
     parse,
   };
 }
+
+export type UBXParser = ReturnType<typeof createParser>;
