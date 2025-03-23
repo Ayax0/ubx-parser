@@ -12,6 +12,7 @@
       "default": "./dist/index.mjs"
     }
   },
+  "main": "dist",
   "files": [
     "dist"
   ],
